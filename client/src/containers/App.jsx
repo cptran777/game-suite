@@ -3,7 +3,7 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
-import { bindActionCreataors } from 'redux';
+import { bindActionCreators } from 'redux';
 import * as Actions from '../actions/index';
 
 /*************** PROJECT SPECIFIC IMPORTS ******************/
@@ -38,7 +38,7 @@ const mapStateToProps = (state) => {
 // container as props
 const mapDispatchToProps = (dispatch) => {
   return {
-    actions: bindActionCreataors(Actions, dispatch)
+    actions: bindActionCreators(Actions, dispatch)
   };
 }
 
