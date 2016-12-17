@@ -10,6 +10,7 @@ import configureStore from './store/configureStore';
 /*************** PROJECT SPECIFIC IMPORTS ******************/
 
 import App from './containers/App';
+import Home from './containers/HOme';
 
 /************* SETUP VIRTUAL DOM AND ROUTER ****************/
 
@@ -19,7 +20,7 @@ ReactDOM.render(
   <Provider store={ store }>
     <Router history={ browserHistory }>
       <Route path='/' component={ App }>
-        <IndexRoute component= { /*TBD*/ }/>
+        <IndexRoute component= { Home }/>
         <Route path="TBD" component= { /*TBD*/ }/>
       </Route>
     </Router>

@@ -20,7 +20,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="app-container">
+        <header></header>
         { this.props.children }
+        <footer></footer>
       </div>
     );
   }
