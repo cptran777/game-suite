@@ -1,5 +1,5 @@
-/* The Home container contains all of the components that will appear
-*  as the index route in the application and serves as a landing page
+/* The TicTacToe container contains all of the components that are
+*  part of the tic tac toe game
 */
 
 /*************** REACT AND CUSTOM IMPORTS ******************/
@@ -8,7 +8,7 @@ import React from 'react';
 
 /********************** MAIN EXPORT ************************/
 
-class Home extends React.Component {
+class TicTacToe extends React.Component {
 
   constructor(props) {
     super(props);
@@ -21,4 +21,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+export default TicTacToe;

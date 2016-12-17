@@ -10,7 +10,8 @@ import configureStore from './store/configureStore';
 /*************** PROJECT SPECIFIC IMPORTS ******************/
 
 import App from './containers/App';
-import Home from './containers/HOme';
+import Home from './containers/Home';
+import TicTacToe from './containers/TicTacToe';
 
 /************* SETUP VIRTUAL DOM AND ROUTER ****************/
 
@@ -21,7 +22,7 @@ ReactDOM.render(
     <Router history={ browserHistory }>
       <Route path='/' component={ App }>
         <IndexRoute component= { Home }/>
-        <Route path="TBD" component= { /*TBD*/ }/>
+        <Route path="tictactoe" component= { TicTacToe }/>
       </Route>
     </Router>
   </Provider>,
