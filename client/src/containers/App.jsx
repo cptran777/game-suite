@@ -2,6 +2,8 @@
 
 import React from 'react';
 
+import { Router, Route, Link } from 'react-router';
+
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as Actions from '../actions/index';
@@ -19,10 +21,16 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="app-container">
-        <header>Hi</header>
+      <div id="app-container" className="container-fluid">
+        <header className="row">
+          <div id="logo"><h1 id="header">Game Suite</h1></div>
+          <nav id="navbar">
+            <div className="col-sm-3 col-md-3"><Link to="/">Home</Link></div>
+            <div className="col-sm-3 col-md-3"><Link to="tictactoe" onClick={() => { this.props.actions.changeGame('TICTACTOE'); }}>Tic Tac Toe</Link></div>
+          </nav>
+        </header>
         { this.props.children }
-        <footer>What</footer>
+        <footer className="row">What</footer>
       </div>
     );
   }
@@ -31,7 +39,9 @@ class App extends React.Component {
 // Retrieves from store to provide data to container, results of 
 // reducers will appear as props
 const mapStateToProps = (state) => {
-  return {};
+  return {
+    currentGame: state.gameSelect.currentGame
+  };
 }
 
 // Passes data to store from container. Adds action creators to the

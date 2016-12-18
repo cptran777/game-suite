@@ -16,7 +16,9 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div>What do</div>
+      <div className="row container-fluid">
+        What do
+      </div>
     );
   }
 }

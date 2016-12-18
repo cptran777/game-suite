@@ -1,0 +1,18 @@
+/******************** CONTAINER FORMAT *********************/
+
+html, body, #app, #app-container {
+  height: 100%;
+}
+
+/********************* BANNER FORMAT ***********************/
+
+#logo {
+  width: 100%;
+  float: left;
+  text-align: center;
+}
+
+#navbar {
+  float: left;
+  width: 100%;
+}
