@@ -15,4 +15,5 @@ html, body, #app, #app-container {
 #navbar {
   float: left;
   width: 100%;
+  background-color: #e77225;
 }

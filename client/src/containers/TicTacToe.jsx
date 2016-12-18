@@ -6,6 +6,10 @@
 
 import React from 'react';
 
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as Actions from '../actions/index';
+
 /********************** MAIN EXPORT ************************/
 
 class TicTacToe extends React.Component {
@@ -15,10 +19,25 @@ class TicTacToe extends React.Component {
   }
 
   render() {
+    console.log(this.props.currentGame);
     return (
-      <div></div>
+      <main id="app-body" className="row container-fluid">
+        <div className="row">This is the Tic Tac Toe game</div>
+      </main>
     );
   }
 }
 
-export default TicTacToe;
+const mapStateToProps = (state) => {
+  return {
+    currentGame: state.gameSelect.currentGame
+  };
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: bindActionCreators(Actions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TicTacToe);

@@ -16,9 +16,12 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div className="row container-fluid">
-        What do
-      </div>
+      <main id="app-body" className="row container-fluid">
+        <div className="row content-header">
+          <h2 className="content-heading">Welcome to Game Suite</h2>
+        </div>
+        <div className="row content-body"></div>
+      </main>
     );
   }
 }

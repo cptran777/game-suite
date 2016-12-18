@@ -25,12 +25,16 @@ class App extends React.Component {
         <header className="row">
           <div id="logo"><h1 id="header">Game Suite</h1></div>
           <nav id="navbar">
-            <div className="col-sm-3 col-md-3"><Link to="/">Home</Link></div>
-            <div className="col-sm-3 col-md-3"><Link to="tictactoe" onClick={() => { this.props.actions.changeGame('TICTACTOE'); }}>Tic Tac Toe</Link></div>
+            <div className="col-sm-3 col-md-3">
+              <Link to="/" className="button">Home</Link>
+            </div>
+            <div className="col-sm-3 col-md-3">
+              <Link to="tictactoe" className="button" onClick={() => { this.props.actions.changeGame('TICTACTOE'); }}>Tic Tac Toe</Link>
+            </div>
           </nav>
         </header>
         { this.props.children }
-        <footer className="row">What</footer>
+        <footer className="row">Footer</footer>
       </div>
     );
   }
