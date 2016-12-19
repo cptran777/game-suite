@@ -31,23 +31,29 @@ const checkRowsNCols = (board, criteria, count) => {
 
 };
 
-const checkDiagonals = (board, criteria) => {
+const checkDiagonals = (board, criteria, count) => {
 
-  let leftMatch = true, rightMatch = true;
+  let leftMatch = 0, rightMatch = 0;
 
   for (let i = 0, j = 0, x = board.length - 1, y = 0; i < board.length; i++, j++, x--, y++) {
 
-    if (board[i][j] !== criteria) {
-      leftMatch = false;
+    if (board[i][j] === criteria) {
+      leftMatch++;
     }
 
-    if (board[x][y] !== criteria) {
-      rightMatch = false;
+    if (board[x][y] === criteria) {
+      rightMatch++;
     }
 
   }
 
-  return leftMatch || rightMatch;
+  if (leftMatch === count) {
+    return { result: true, type: 'left' };
+  } else if (rightMatch === count) {
+    return { result: true, type: 'right' };
+  } else {
+    return { result: false, type: null };
+  }
 
 };
 
@@ -114,29 +120,6 @@ class TicTacBoard {
 class Ai {
 
   constructor() {
-
-  }
-
-  countRowsNCols(board, criteria) {
-
-    for (let i = 0; i < board.length; i++) {
-
-      let rowCount = 0;
-      let colCount = 0;
-
-      for (let j = 0; j < board.length; j++) {
-        if (board[i][j] === criteria) {
-          count++;
-        }
-      }
-
-      if (count === 2) {
-        return { exists: true, row: i };
-      }
-
-    }
-
-    return { exists: false, row: null };
 
   }
 
