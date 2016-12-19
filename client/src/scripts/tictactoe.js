@@ -79,7 +79,7 @@ class TicTacBoard {
 
   // Coords are expected to be a tuple array with the first value being the
   // row and the second val being the column of the board
-  isEmpty(coords) {
+  isEmptyAt(coords) {
     return this.board[coords[0]][coords[1]] === 0;
   }
 
@@ -123,8 +123,82 @@ class Ai {
 
   }
 
+  makeLinearMove(board, check) {
+
+    if (check.row) {
+      for (let i = 0; i < 3; i++) {
+        if (board.isEmptyAt([check.row, i]) {
+          return board.makePlay([check.row, i], 2);
+        }
+      }
+    } else if (check.col) {
+      for (let i = 0; i < 3; i++) {
+        if (board.isEmptyAt([i, check.col]) {
+          return board.makePlay([i, check.col], 2);
+        }
+      }
+    }
+
+  }
+
+  makeDiagonalMove(board, check) {
+
+    if (check.type === 'left') {
+      for (let i = 0, j = 0; i < 3; i++, j++) {
+        if (board.isEmptyAt([i, j]) {
+          return board.makePlay([i, j], 2);
+        }
+      }
+    } else if (check.type === 'right') {
+      for (let i = 2, j = 0; j < 3; i--, j++) {
+        if (board.isEmptyAt([i, j]) {
+          return board.makePlay([i, j], 2);
+        }
+      }
+    }
+  }
+
+  makePlay(board) {
+
+    let matrix = board.getBoard();
+
+    // Check rows and columns for potential victories
+    let checkAi = checkRowsNCols(matrix, 2, 2);
+
+    if (checkAi.result) {
+      return this.makeLinearMove(board, checkAi);
+    }
+
+    // Check for diagonal potential victory plays
+    checkAi = checkDiagonals(matrix, 2, 2);
+
+    if (checkAi.result) {
+      return this.makeDiagonalMove(board, checkAi);
+    }
+
+    // Check for rows and columns of potential defeat
+    checkAi = checkRowsNCols(matrix, 1, 2);
+
+    if (checkAi.result) {
+      return this.makeLinearMove(board, checkAi);
+    }
+
+    // Check for diagonal potential defeats
+    checkAi = checkDiagonals(matrix, 1, 2);
+
+    if (checkAi.result) {
+      return this.makeDiagonalMove(board, checkAi);
+    }
+
+    let availableMoves = board.emptyList();
+
+    return board.makePlay(availableMoves[Math.floor(Math.random() * availableMoves.length)], 2);
+
+  }
+
 }
 
 export default {
-  TicTacBoard
+  TicTacBoard,
+  Ai
 };
